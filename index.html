@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+function getComputerChoice (){
+  let number = Math.floor(Math.random() * 10) + 1;
+  console.log(number);
+  if (number >= 1 && number <= 3) {
+    console.log("Rock");
+  } else if (number >= 4 && number <= 6){
+    console.log("Paper");
+  } else if (number >= 7 && number <= 10){
+    console.log("Scissors");
+  }
+}
+
+
+    </script>
+    
+</body>
+</html>
