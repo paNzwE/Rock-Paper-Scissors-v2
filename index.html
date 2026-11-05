@@ -7,31 +7,64 @@
 </head>
 <body>
     <script>
+ let humanScore = 0;
+ let computerScore = 0;
+
 function getComputerChoice (){
   let number = Math.floor(Math.random() * 10) + 1;
-  console.log(number);
+  
   if (number >= 1 && number <= 3) {
     console.log("Rock");
+    return "rock";
   } else if (number >= 4 && number <= 6){
     console.log("Paper");
+    return "paper";
   } else if (number >= 7 && number <= 10){
     console.log("Scissors");
+    return "scissors";
   }
+}
 
   function getHumanChoice(){
  let humanChoice = prompt("Enter your choice", "");
+ 
+  if (humanChoice === null) {
+        return;
+    }
+
     if (humanChoice.toLowerCase() === "rock"){
         console.log("Rock");
+        return "rock";
     } else if (humanChoice.toLowerCase() === "paper"){
         console.log("Paper");
+        return "paper";
     } else if (humanChoice.toLowerCase() === "scissors"){
         console.log("Scissors");
+        return "scissors";
     } else { 
         console.log("wrong answer");
     }
 }
 
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === "rock" && computerChoice === "scissors" ||
+    humanChoice === "paper" && computerChoice === "rock" ||
+    humanChoice === "scissors" && computerChoice === "paper") {
+        console.log("YOU WON!");  
+    } else if (humanChoice === "rock" && computerChoice === "paper" ||
+    humanChoice === "paper" && computerChoice === "scissors" ||
+    humanChoice === "scissors" && computerChoice === "rock") {
+        console.log( "YOU LOST!")
+    } else {
+        console.log("ITS DRAW!")
+    }
 }
+
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
 
 
     </script>
