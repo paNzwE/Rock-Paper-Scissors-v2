@@ -17,6 +17,20 @@ function getComputerChoice (){
   } else if (number >= 7 && number <= 10){
     console.log("Scissors");
   }
+
+  function getHumanChoice(){
+ let humanChoice = prompt("Enter your choice", "");
+    if (humanChoice.toLowerCase() === "rock"){
+        console.log("Rock");
+    } else if (humanChoice.toLowerCase() === "paper"){
+        console.log("Paper");
+    } else if (humanChoice.toLowerCase() === "scissors"){
+        console.log("Scissors");
+    } else { 
+        console.log("wrong answer");
+    }
+}
+
 }
 
 
