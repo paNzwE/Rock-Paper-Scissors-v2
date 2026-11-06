@@ -27,9 +27,9 @@ function getComputerChoice (){
 
   function getHumanChoice(){
  let humanChoice = prompt("Enter your choice", "");
- 
+
   if (humanChoice === null) {
-        return;
+        return null;
     }
 
     if (humanChoice.toLowerCase() === "rock"){
@@ -51,20 +51,42 @@ function playRound(humanChoice, computerChoice) {
     humanChoice === "paper" && computerChoice === "rock" ||
     humanChoice === "scissors" && computerChoice === "paper") {
         console.log("YOU WON!");  
+        humanScore++;
+        
     } else if (humanChoice === "rock" && computerChoice === "paper" ||
     humanChoice === "paper" && computerChoice === "scissors" ||
     humanChoice === "scissors" && computerChoice === "rock") {
         console.log( "YOU LOST!")
+        computerScore++;
+        
     } else {
         console.log("ITS DRAW!")
     }
 }
 
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+
+
+
+
+
+function playGame(){
+    for ( let i = 0; i <= 4; i++){
+        const nextHumanChoice = getHumanChoice();
+        const nextComputerChoice = getComputerChoice();
+        if (nextHumanChoice === null) {
+            return;
+        }
+        playRound(nextHumanChoice, nextComputerChoice);
+    }
+    if (humanScore > computerScore){
+        console.log("You are the winner!", "human score:", humanScore, "computer score:", computerScore);
+    } else if (humanScore < computerScore){
+        console.log("Computer is the winner!", "human score:", humanScore, "computer score:", computerScore);
+    } else { console.log("Its a draw!", "human score:", humanScore, "computer score:", computerScore)}
+}
+playGame();
 
 
     </script>
